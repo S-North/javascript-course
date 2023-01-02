@@ -77,3 +77,8 @@ console.log(myVariable1 - myVariable1)
 console.log(myVariable1 / myVariable1)
 console.log(myVariable1 * myVariable1)
 ```
+
+## Whats the diference between var, let & const
+- const allows you to assign a value to it only once, then it cannot be changed. Its best to use this variable type if you know your value should never change e.g. Pi, or the speed of light
+- let allows you to reassign the value of the variable, so is useful for storing values that will change in your program
+- var is an old variable type and it has some unexpected behavior. You never need to use var so you shouldn't use it. You may see it in code written by other people, especially older code.
