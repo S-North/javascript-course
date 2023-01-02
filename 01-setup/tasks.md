@@ -1,5 +1,9 @@
 # Setup
 
+## Create the folder
+1. Create a folder called 01-Setup.
+2. Store all the following files in this lesson in this folder
+
 ## Create a blank HTML file
 1. In your project folder, create a file called index.html
 2. In VS Code you can use the ! symbol to create the basic html boilerplate. Or you can type it out manually if you want practice getting the structure right.
