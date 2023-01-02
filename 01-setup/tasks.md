@@ -30,8 +30,13 @@
 1. In the html file, create a div element inside the body element e.g. <div></div>
 2. Add a class property to the div and set it equal to "myStyle" e.g. <div class="myStyle"></div>
 3. In the style.css file, create a class called .myStyle e.g.
+4. Add the following properties to the class
 ```css
 .myStyle {
-
+    background-color: red;
+    height: 10rem;
+    width: 10rem;
+    margin: auto;
 }
 ```
+5. Check that the div is displayed on your web page. You can open the html file directly in your browser by dobleclicking the file. Or you can install the VS Code extension called Live Server 
