@@ -43,7 +43,37 @@ console.log(myVariable1)
 let myVariable1 = 1
 console.log(myVariable1)
 
-myVariable1 = 2
+myVariable1 = 5
 console.log(myVariable1)
 ```
-Refresh you page, you should see 1 then 2 logged in the console.
+Refresh you page, you should see 1 then 5 logged in the console.
+
+### calculations
+We can do arithmatic with numbers using maths operators e.g.
+- `+` - addition
+- `-` - subtraction
+- `*` - multiplication
+- `/` - division
+
+```javascript
+let myVariable1 = 1
+console.log(myVariable1)
+
+myVariable1 = 2
+console.log(myVariable1)
+
+console.log(5+2)
+console.log(5-2)
+console.log(5*2)
+console.log(5/2)
+```
+
+You shoud see 25 logged in the console
+
+We can also use the values of variables to do calculations
+```javascript
+console.log(myVariable1 + myVariable1)
+console.log(myVariable1 - myVariable1)
+console.log(myVariable1 / myVariable1)
+console.log(myVariable1 * myVariable1)
+```
