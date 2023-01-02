@@ -2,7 +2,7 @@
 
 ## Create a blank HTML file
 1. In your project folder, create a file called index.html
-2. In VS CODE you can use the ! symbol to create the basic html boilerplate
+2. In VS Code you can use the ! symbol to create the basic html boilerplate. Or you can type it out manually if you want practice getting the structure right.
 3. Change the contents of the title element from "Document" to "01-Setup"
 ```html
 <!DOCTYPE html>
@@ -24,7 +24,10 @@
 3. Add the rel property and set it to equal "stylesheet"
 3. Add the href property and set it to equal "style.css"
 ```html
-<link rel="stylesheet" href="style.css">
+<head>
+    ...existing elements
+    <link rel="stylesheet" href="style.css">
+</head>
 ```
 ### Test the CSS file is working
 1. In the html file, create a div element inside the body element e.g. <div></div>
@@ -39,4 +42,23 @@
     margin: auto;
 }
 ```
-5. Check that the div is displayed on your web page. You can open the html file directly in your browser by dobleclicking the file. Or you can install the VS Code extension called Live Server 
+5. Check that the div is displayed on your web page. You can open the html file directly in your browser by dobleclicking the file. Or you can install the VS Code extension called Live Server.
+
+## Create a JavaScript file
+1. In your project folder, create a file called main.js
+2. In your index.html file, add a script element inside the head element
+3. Add the properties, type="text/javascript" src="main.js"
+```html
+<head>
+    ...existing elements
+    <script type="text/javascript" src="main.js"></script>
+</head>
+```
+
+### Test the Javascript file is working
+1. In the main.js file write the following
+```javascript
+console.log("Its working!")
+```
+2. Open you html file in the browser again and hit the f12 button. The browser dev tools will open and you should see the console.
+3. Refresh the page and you should see `Its working!` print out in the console
