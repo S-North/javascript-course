@@ -59,7 +59,7 @@ We can do arithmatic with numbers using maths operators e.g.
 let myVariable1 = 1
 console.log(myVariable1)
 
-myVariable1 = 2
+myVariable1 = 5
 console.log(myVariable1)
 
 console.log(5+2)
@@ -68,7 +68,7 @@ console.log(5*2)
 console.log(5/2)
 ```
 
-You shoud see 25 logged in the console
+You shoud see 7, 3, 10 & 2.5 logged in the console
 
 We can also use the values of variables to do calculations
 ```javascript
@@ -78,7 +78,9 @@ console.log(myVariable1 / myVariable1)
 console.log(myVariable1 * myVariable1)
 ```
 
+You shoud see 10, 0, 1, 25 logged in the console
+
 ## Whats the diference between var, let & const
-- const allows you to assign a value to it only once, then it cannot be changed. Its best to use this variable type if you know your value should never change e.g. Pi, or the speed of light
-- let allows you to reassign the value of the variable, so is useful for storing values that will change in your program
+- const allows you to assign a value to it only once, then it cannot be changed. Its best to use this variable type if you know your value should never change e.g. Pi, or the speed of light.
+- let allows you to reassign the value of the variable, so is useful for storing values you want to change in your program.
 - var is an old variable type and it has some unexpected behavior. You never need to use var so you shouldn't use it. You may see it in code written by other people, especially older code.
