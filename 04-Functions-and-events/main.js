@@ -16,9 +16,12 @@ element.style.cursor = 'pointer'
 
 element.innerHTML = "Pet Me...";
 
-element.addEventListener('click', () => {
-    // element.innerHTML === "Miow" ? element.innerHTML = "Woof" : element.innerHTML = "Miow"
+function changeText () {
+    console.log('changeText ran')
+    // element.innerHTML = "Miow"
     if (element.innerHTML === "Miow") {
         element.innerHTML = "Woof"
     } else element.innerHTML = "Miow"
-})
+}
+
+// element.addEventListener('click', () => changeText())
