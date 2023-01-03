@@ -15,3 +15,7 @@ element.style.boxShadow = "0 0 3px 2px rgba(0, 0, 0, 50%)"
 element.style.cursor = 'pointer'
 
 element.innerHTML = "Pet Me...";
+
+let image = document.getElementById("image");
+image.setAttribute("alt", "wetssapp");
+image.setAttribute("src", "https://www.androidpolice.com/wp-content/uploads/2018/09/whatsapp-thumbnail-icon.png");

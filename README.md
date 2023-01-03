@@ -29,3 +29,26 @@ myObject = {
 }
 myObject.age = 15
 ```
+
+## DOM manipulation
+```javascript
+// select an html element and store it in a variable
+let element = document.getElementById("box")
+
+// use the variable to manipulate the element
+element.innerHTML = "Pet Me..." // change the inner html (between the opening and closing tags)
+
+// change the inline css style
+element.style.fontWeight = "bold";
+element.style.fontSize = "3rem";
+
+// set an elements attributes
+let image = document.getElementById("image");
+image.setAttribute("alt", "wetssapp");
+image.setAttribute("src", "https://www.androidpolice.com/wp-content/uploads/2018/09/whatsapp-thumbnail-icon.png");
+
+// add an elent listener to the element
+element.addEventListener('mouseenter', () => {
+    console.log('the mouse pointer is hovering over this element')
+})
+```
