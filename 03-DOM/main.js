@@ -2,8 +2,12 @@ let element = document.getElementById("box");
 console.log(element)
   
 element.style.backgroundImage = "url(bruno-zoli.jpg)";
-element.style.backgroundSize = "cover";
+element.style.aspectRatio = '1/1'
+element.style.backgroundSize = "contain";
 
+element.style.height = '100%'
+
+element.style.color = 'ghostwhite'
 element.style.textAlign = "center";
 element.style.fontWeight = "bold";
 element.style.fontSize = "3rem";
