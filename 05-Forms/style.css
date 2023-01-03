@@ -41,3 +41,7 @@ p, h1, h2, h3 {
     align-items: center;
     cursor: pointer;
 }
+
+#messages {
+    width: 50%
+}

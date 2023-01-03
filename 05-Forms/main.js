@@ -1,13 +1,25 @@
 const form = document.getElementById('form')
-const input = document.getElementById('text')
+const input = document.getElementById('input')
 const result = document.getElementById('result')
+const messages = document.getElementById('messages')
+let counter = 1
 
 const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(e.target.text.value)
-    result.innerHTML = e.target.text.value
-    text.value = ''
-    text.focus()
+    const value = e.target.input.value
+    // console.log( typeof e.target.input.value)
+
+    // result.innerHTML = e.target.input.value
+    input.value = ''
+    input.focus()
+
+    // add a new element to the list
+    const message = document.createElement('p')
+    console.log(message)
+    message.innerHTML = "felix: " + value
+    console.log(message)
+    messages.appendChild(message)
+    counter++
 }
 
 form.addEventListener('submit', e => handleSubmit(e))
