@@ -7,7 +7,6 @@ let counter = 1
 const handleSubmit = (e) => {
     e.preventDefault()
     const value = e.target.input.value
-    // console.log( typeof e.target.input.value)
 
     // result.innerHTML = e.target.input.value
     input.value = ''

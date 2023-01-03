@@ -1,0 +1,22 @@
+:root {
+    --playerX: 0px;
+    --playerY: 0px;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(58, 58, 108);
+}
+
+#canvas {
+    height: 100vh;
+}
+
+#player {
+    background-color: ghostwhite;
+    height: 1rem;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: var(--playerX);
+    left: var(--playerY);
+}
