@@ -2,6 +2,10 @@
 
 ## Variables
 
+- `let` value can be reassigned
+- `const` value cannot be reassigned
+- `var` don't use
+
 ```javascript
 // declare and assign a string variable
 let myString = ""
