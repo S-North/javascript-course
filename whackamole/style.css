@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: grey;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#game {
+    width: 90vw;
+    height: 90vh;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem
+}
+
+#board {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.mole {
+    width: 1rem;
+    aspect-ratio: 1/1;
+    background-color: rgb(35, 35, 186);
+    position: absolute;
+}
