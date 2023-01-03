@@ -2,7 +2,8 @@ const form = document.getElementById('form')
 const input = document.getElementById('input')
 const result = document.getElementById('result')
 const messages = document.getElementById('messages')
-let counter = 1
+
+input.focus()
 
 const handleSubmit = (e) => {
     e.preventDefault()
@@ -14,11 +15,8 @@ const handleSubmit = (e) => {
 
     // add a new element to the list
     const message = document.createElement('p')
-    console.log(message)
     message.innerHTML = "felix: " + value
-    console.log(message)
     messages.appendChild(message)
-    counter++
 }
 
 form.addEventListener('submit', e => handleSubmit(e))
