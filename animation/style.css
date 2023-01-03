@@ -13,8 +13,10 @@ body {
 }
 
 #player {
-    background-color: ghostwhite;
-    height: 1rem;
+    /* background-color: white; */
+    background-image: url("./luigi.png");
+    background-size: contain;
+    height: 3rem;
     aspect-ratio: 1/1;
     position: absolute;
     top: var(--playerX);
