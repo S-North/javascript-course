@@ -53,7 +53,7 @@ for (let i = 0; i < multiples.length; i++) {
     multiples.item(i).innerHTML = 'HELLO';
   }
 
-// add an elent listener to the element
+// add an event listener to the element
 element.addEventListener('mouseenter', () => {
     console.log('the mouse pointer is hovering over this element')
 })
