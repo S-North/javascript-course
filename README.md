@@ -47,6 +47,12 @@ let image = document.getElementById("image");
 image.setAttribute("alt", "wetssapp");
 image.setAttribute("src", "https://www.androidpolice.com/wp-content/uploads/2018/09/whatsapp-thumbnail-icon.png");
 
+// set a collection's attributes
+let multiples = document.getElementsByClassName('multiple')
+for (let i = 0; i < multiples.length; i++) {
+    multiples.item(i).innerHTML = 'HELLO';
+  }
+
 // add an elent listener to the element
 element.addEventListener('mouseenter', () => {
     console.log('the mouse pointer is hovering over this element')
