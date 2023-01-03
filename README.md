@@ -58,3 +58,25 @@ element.addEventListener('mouseenter', () => {
     console.log('the mouse pointer is hovering over this element')
 })
 ```
+
+## functions
+```javascript
+function myFunction (input1, input2) {
+    // do stuff here
+    return output
+}
+
+// arrow function
+const myFunction = (input1, input2) => {
+    // do stuff here
+    return output
+}
+
+// call your function
+myFunction()
+
+// anonymous function
+() => {
+    console.log('hello)
+}
+```
