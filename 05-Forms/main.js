@@ -5,8 +5,10 @@ const messages = document.getElementById('messages')
 const joined = document.getElementById('joined')
 const reversed = document.getElementById('reversed')
 const totalWords = document.getElementById('totalWords')
+const totalLetters = document.getElementById('totalLetters')
 
 input.focus()
+form.addEventListener('submit', e => handleSubmit(e))
 
 const messageArray = []
 
@@ -14,7 +16,9 @@ const handleSubmit = (e) => {
     e.preventDefault()
 
     const inputValue = e.target.input.value
-    console.log(inputValue.length) // length method
+
+    // string methods
+    stringMethods(inputValue)
     
     // add a new element to the list
     const message = document.createElement('p')
@@ -34,13 +38,12 @@ const handleSubmit = (e) => {
 
     // update the word count
     totalWords.innerHTML = "Total Words: " + wordCount(messageArray)
+    totalLetters.innerHTML = "Total Letters: " + letterCount(messageArray)
     
     // reset the input box and focus it
     input.value = ''
     input.focus()
 }
-
-form.addEventListener('submit', e => handleSubmit(e))
 
 function reverseWords( string ) {
     // guard clause
@@ -65,13 +68,42 @@ function wordCount ( array ) {
 
     let wordCount = 0
     for (let i = 0; i < array.length; i++) {
-        console.log(array[i])
+        // console.log(array[i])
         wordCount += array[i].split(' ').length
     }
 
     return wordCount
 }
 
+function letterCount ( array ) {
+    // guard clause
+    if (!array || array.length < 0) return 0
+
+    let letterCount = 0
+    for (let i = 0; i < array.length; i++) {
+        // console.log(array[i])
+        letterCount += array[i].length
+    }
+
+    return letterCount
+}
+
+function stringMethods ( inputString ) {
+    // guard clause
+    if (!inputString || typeof inputString !== 'string') return 
+
+    console.log(inputString)
+    console.log(inputString.length) // returns the number of characters
+    console.log(inputString.slice(0, 4)) // returns the first 3 characters
+    
+    // replace using regex !!
+    console.log(inputString.replace(/the/g, 'banana')) // returns the first 3 characters
+    
+
+    console.log(inputString.toUpperCase())
+    console.log(inputString.toLowerCase())    
+
+}
 function updateText () {
     // get the number of elements in an array
     let arrayLength = messageArray.length
