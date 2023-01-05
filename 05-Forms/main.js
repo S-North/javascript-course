@@ -14,14 +14,17 @@ const handleSubmit = (e) => {
     e.preventDefault()
 
     const inputValue = e.target.input.value
+    console.log(inputValue.length) // length method
     
     // add a new element to the list
     const message = document.createElement('p')
     message.innerHTML = "felix: " + inputValue
     messages.appendChild(message)
     
+    // add the string to the array + array.length
     messageArray.push(inputValue)
     console.log(messageArray)
+    console.log(messageArray.length)
     
     // update the yoda text
     reversed.innerHTML = reverseWords(messageArray[messageArray.length -1])
