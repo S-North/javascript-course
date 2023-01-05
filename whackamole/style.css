@@ -1,8 +1,13 @@
+*, *::before, *::after {
+    margin: 0;
+}
+
 body {
     margin: 0;
     width: 100vw;
     height: 100vh;
     background-color: grey;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 
     display: flex;
     flex-direction: column;
@@ -28,8 +33,10 @@ body {
 }
 
 .mole {
-    width: 1rem;
+    width: 2rem;
     aspect-ratio: 1/1;
-    background-color: rgb(35, 35, 186);
+    /* background-color: rgb(216, 216, 222); */
     position: absolute;
+    background-image: url('https://clipart.info/images/minicovers/1523212415angry-trump-head-png.png');
+    background-size: cover;
 }
