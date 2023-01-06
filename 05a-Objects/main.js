@@ -1,3 +1,5 @@
+const userForm = document.getElementById('usernameForm')
+const usernameLabel = document.getElementById('displayUser')
 const form = document.getElementById('form')
 const input = document.getElementById('input')
 const result = document.getElementById('result')
@@ -8,33 +10,85 @@ const totalWords = document.getElementById('totalWords')
 const totalLetters = document.getElementById('totalLetters')
 
 input.focus()
+userForm.addEventListener('submit', e => handleUserForm(e))
 form.addEventListener('submit', e => handleSubmit(e))
 
 const messageArray = []
 
-const handleSubmit = (e) => {
+function handleUserForm (e) {
     e.preventDefault()
 
-    const inputValue = e.target.input.value
+    const userValue = e.target.user.value
+    if (!userValue) return
+    console.log(userValue)
+
+    usernameLabel.innerHTML = userValue
+}
+
+const handleSubmit = (e) => {
+    e.preventDefault()
+    if (!e.target.input.value) return
+
+    const inputValue = {
+        username: usernameLabel.innerHTML || 'anonymous',
+        text: e.target.input.value,
+        date: new Date
+    }
+    console.log(inputValue)
 
     // string methods
     stringMethods(inputValue)
     
-    // add a new element to the list
-    const message = document.createElement('p')
-    message.innerHTML = "felix: " + inputValue
-    messages.appendChild(message)
-    
-    // add the string to the array + array.length
+    {
+        // add a new element to the list
+        const container = document.createElement('div')
+        container.className = 'message'
+
+        const firstLine = document.createElement('div')
+        firstLine.style.display = "flex"
+        firstLine.style.gap = "1rem"
+        // profile.style.maxWidth = "5rem"
+
+        const username = document.createElement('p')
+        username.innerHTML = inputValue.username
+        username.style.fontWeight = "bold"
+        username.style.minWidth = "7rem"
+        firstLine.appendChild(username)
+
+        const text = document.createElement('p')
+        text.innerHTML = inputValue.text
+        firstLine.appendChild(text)
+
+        container.appendChild(firstLine)
+
+        const date = document.createElement('em')
+        date.innerHTML = inputValue.date
+        date.style.fontSize = "small"
+        container.appendChild(date)
+
+        messages.appendChild(container)
+    }
+
+    // add the object to the array + array.length
     messageArray.push(inputValue)
     console.log(messageArray)
     console.log(messageArray.length)
     
     // update the yoda text
-    reversed.innerHTML = reverseWords(messageArray[messageArray.length -1])
+    reversed.innerHTML = reverseWords(messageArray[messageArray.length -1].text)
     
     // join elements of arrays together
-    joined.innerHTML = messageArray.join('. ')
+    // joined.innerHTML = messageArray.join('. ')
+
+    // as a loop
+    let newString = ''
+    for (let i = 0; i < messageArray.length; i++) {
+        newString = newString.concat(messageArray[i].text + '. ')
+    }
+    joined.innerHTML = newString
+
+    // high level methods
+    // joined.innerHTML = messageArray.map(message => message.text).join('. ')
 
     // update the word count
     totalWords.innerHTML = "Total Words: " + wordCount(messageArray)
@@ -69,7 +123,7 @@ function wordCount ( array ) {
     let wordCount = 0
     for (let i = 0; i < array.length; i++) {
         // console.log(array[i])
-        wordCount += array[i].split(' ').length
+        wordCount += array[i].text.split(' ').length
     }
 
     return wordCount
@@ -82,7 +136,7 @@ function letterCount ( array ) {
     let letterCount = 0
     for (let i = 0; i < array.length; i++) {
         // console.log(array[i])
-        letterCount += array[i].length
+        letterCount += array[i].text.length
     }
 
     return letterCount
@@ -90,18 +144,18 @@ function letterCount ( array ) {
 
 function stringMethods ( inputString ) {
     // guard clause
-    if (!inputString || typeof inputString !== 'string') return 
+    if (!inputString || typeof inputString !== 'object') return 
 
     console.log(inputString)
-    console.log(inputString.length) // returns the number of characters
-    console.log(inputString.slice(0, 4)) // returns the first 3 characters
+    console.log(inputString.text.length) // returns the number of characters
+    console.log(inputString.text.slice(0, 3)) // returns the first 3 characters
     
     // replace using regex !!
-    console.log(inputString.replace(/the/g, 'banana')) // returns the first 3 characters
+    console.log(inputString.text.replace(/the/g, 'banana')) // returns the first 3 characters
     
 
-    console.log(inputString.toUpperCase())
-    console.log(inputString.toLowerCase())    
+    console.log(inputString.text.toUpperCase())
+    console.log(inputString.text.toLowerCase())    
 
 }
 
