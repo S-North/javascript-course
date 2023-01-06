@@ -102,7 +102,7 @@ myArray.join(', ') // returns a string with all the items of an array concatinat
 ```
 
 ## Objects
-['https://www.w3schools.com/js/js_objects.asp'](Objects on W3Schools)
+[Objects on W3Schools](https://www.w3schools.com/js/js_objects.asp)
 ```javascript
 // create an object
 const myObject = {
