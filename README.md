@@ -84,7 +84,8 @@ element.addEventListener('mouseenter', () => {
 ## Arrays
 ```javascript
 // create an array
-// items in an array are indexed staring at 0
+// items in an array are indexed starting at 0
+          index: 0  1  2  3  4
 const myArray = [1, 2, 3, 4, 5]
 
 myArray.length // returns the number of items in the array
@@ -123,4 +124,7 @@ const circle = {
     radius: 40,
     circumference: () => return (this.radius * 2) * Math.PI
 }
+
+// the spread/rest operator
+
 ```

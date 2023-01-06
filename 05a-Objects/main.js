@@ -64,6 +64,7 @@ const handleSubmit = (e) => {
         const date = document.createElement('em')
         date.innerHTML = inputValue.date
         date.style.fontSize = "small"
+        date.style.color = 'grey'
         container.appendChild(date)
 
         messages.appendChild(container)
