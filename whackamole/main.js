@@ -2,10 +2,81 @@ const board = document.getElementById('board')
 const game = document.getElementById('game')
 const playingarea = board.getBoundingClientRect()
 const scoreboard = document.getElementById('score')
+const stateButton = document.getElementById('state')
 
 let score = 0
-let items = 1
+let items = 0
 let speed = 2000
+
+const FPS = 60
+let state = 'paused'
+
+stateButton.addEventListener('click', () => {
+    if (state === 'paused') {
+        stateButton.innerHTML = 'Stop'
+        state = 'running'
+    } else if (state === 'running') {
+        stateButton.innerHTML = 'Start'
+        state = 'paused'
+    }
+})
+
+function mainLoop () {
+    const startTime = new Date
+    let lastTime = new Date
+
+    const running = setInterval(() => {
+        let currentTime = new Date
+        let delta = currentTime - lastTime 
+
+        if (state === 'running') update({startTime, currentTime})
+        // if (state === 'running') render()
+        
+
+        lastTime = new Date
+
+        if (state === 'ended' || items - score > 300) {
+            clearInterval(running)
+            console.log('end game')
+
+            // let cover = document.createElement('div')
+            // cover.width = '100%'
+            // cover.height = '100%'
+            // cover.style.zIndex = 100
+            // board.appendChild(cover)
+
+            const trumps = document.getElementsByClassName('mole')
+            for (let i = 0; i < trumps.length; i++) {
+                trumps[i].removeEventListener('click', addMoleEvent)
+            }
+        }
+
+    }, 1000/FPS)
+}
+
+function update ({startTime, currentTime}) {
+    if ((currentTime - startTime) / speed > items) {
+        console.log('add new item')
+        for (let i = 0; i < randomNumber(1, 4); i++) {
+            createMole({ currentTime })
+        }
+        const selection = ['4000', 'hands', 'luck', 'russia']
+        let audio = new Audio(`audio/${selection[randomNumber(0, 3)]}.mp3`)
+        audio.loop = false
+        audio.play()
+        if (speed > 400) speed -= 20
+        console.log(speed)
+        console.log(items)
+        console.log(score)
+        console.log(items - score)
+    }
+}
+
+function render () {
+    console.log('render')
+}
+
+mainLoop()
 
 function sleep(interval) {
     // 
@@ -23,19 +94,36 @@ function randomLocation () {
     return {left, top}
 }
 
-async function createMole () {
+function addMoleEvent (e) {
+    console.log(e.target.id)
+    let splat = new Audio('audio/splat.mp3')
+    splat.loop = false
+    splat.play()
+
+    removeMole(e.target.id)
+
+    score++
+    scoreboard.innerHTML = score
+}
+async function createMole ({ currentTime }) {
     console.log(speed)
     const moleId = items
     const mole = document.createElement('div')
     const location = randomLocation()
 
     mole.setAttribute('id', items)
+    mole.setAttribute('data-created', currentTime)
     mole.className = 'mole'
     mole.style.left = location.left + "px"
     mole.style.top = (location.top) + "px"
-    mole.addEventListener('click', e => {
+    mole.addEventListener('click', function addMoleEvent (e) {
         console.log(e.target.id)
+        let splat = new Audio('audio/splat.mp3')
+        splat.loop = false
+        splat.play()
+
         removeMole(e.target.id)
+        
         score++
         scoreboard.innerHTML = score
     })
@@ -44,15 +132,6 @@ async function createMole () {
 
     // increment the id for the next mole
     items++
-
-    // manage the speed of the new moles being created
-    await sleep(speed)
-    speed -= 50 // speed up the moles
-
-    if (speed > 0) createMole()
-    // console.log('start timeout')
-    // setTimeout(console.log('finished timeout'), 5000)
-    // moleTimeout(moleId)    
 }
 
 async function removeMole (id) {
@@ -65,4 +144,4 @@ async function moleTimeout (moleId) {
     setTimeout(removeMole(moleId), randomNumber(3000, 5000))
 }
 
-createMole()
+// createMole()

@@ -26,7 +26,7 @@ body {
 }
 
 #board {
-    background-color: black;
+    background-color: hotpink;
     height: 100%;
     width: 100%;
     position: relative;
@@ -39,4 +39,19 @@ body {
     position: absolute;
     background-image: url('https://clipart.info/images/minicovers/1523212415angry-trump-head-png.png');
     background-size: cover;
+    animation-name: wobble;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
+
+@keyframes wobble {
+    0% { transform: translateX(0%); } 
+    15% { transform: translateX(-25%) rotate(-5deg); } 
+    30% { transform: translateX(20%) rotate(3deg); } 
+    45% { transform: translateX(-15%) rotate(-3deg); } 
+    60% { transform: translateX(10%) rotate(2deg); }
+    75% { transform: translateX(-5%) rotate(-1deg); }
+    100% { transform: translateX(0%); } 
+ } 
