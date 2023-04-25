@@ -39,12 +39,6 @@ function mainLoop () {
             clearInterval(running)
             console.log('end game')
 
-            // let cover = document.createElement('div')
-            // cover.width = '100%'
-            // cover.height = '100%'
-            // cover.style.zIndex = 100
-            // board.appendChild(cover)
-
             const trumps = document.getElementsByClassName('mole')
             for (let i = 0; i < trumps.length; i++) {
                 trumps[i].removeEventListener('click', addMoleEvent)
@@ -78,11 +72,6 @@ function render () {
 
 mainLoop()
 
-function sleep(interval) {
-    // 
-    return new Promise(resolve => setTimeout(resolve, interval));
-}
-
 function randomNumber (min, max) {
     return Math.floor(Math.random()*(max - min + 1) + min);
 }
@@ -105,6 +94,7 @@ function addMoleEvent (e) {
     score++
     scoreboard.innerHTML = score
 }
+
 async function createMole ({ currentTime }) {
     console.log(speed)
     const moleId = items
@@ -139,9 +129,3 @@ async function removeMole (id) {
     console.log(mole)
     board.removeChild(mole)
 }
-
-async function moleTimeout (moleId) {
-    setTimeout(removeMole(moleId), randomNumber(3000, 5000))
-}
-
-// createMole()
